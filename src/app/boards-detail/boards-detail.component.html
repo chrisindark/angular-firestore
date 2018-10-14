@@ -1,0 +1,36 @@
+<p>
+  boards-detail works!
+</p>
+
+<div *ngIf="board">
+  <div class="button-row">
+    <a [routerLink]="['/boards']">List</a>
+  </div>
+
+  <div class="example-card">
+    <header>
+      <h2>{{board.title}}</h2>
+      <h4>{{board.description}}</h4>
+    </header>
+
+    <div>
+      <dl>
+        <dt>ISBN:</dt>
+        <dd>{{board.isbn}}</dd>
+        <dt>Author:</dt>
+        <dd>{{board.author}}</dd>
+        <dt>Publisher:</dt>
+        <dd>{{board.publisher}}</dd>
+        <dt>Publish Year:</dt>
+        <dd>{{board.published_year}}</dd>
+        <dt>Update Date:</dt>
+        <dd>{{board.updated_date | date}}</dd>
+      </dl>
+    </div>
+
+    <div>
+      <a [routerLink]="['/boards-edit', board.id]">Edit</a>
+      <a (click)="deleteBoard(board.id)">Delete</a>
+    </div>
+  </div>
+</div>

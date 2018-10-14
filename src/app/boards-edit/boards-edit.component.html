@@ -1,0 +1,28 @@
+<p>
+  boards-edit works!
+</p>
+
+<div class="button-row">
+  <a (click)="goToBoardsDetails()">Show</a>
+</div>
+
+<form [formGroup]="boardsForm" (ngSubmit)="onFormSubmit(boardsForm.value)">
+  Title:
+  <br>
+  <input placeholder="Title" formControlName="title">
+  <span *ngIf="!boardsForm.get('title').valid && boardsForm.get('title').touched">Please enter Book Title</span>
+
+  Description:
+  <br>
+  <textarea placeholder="Description" formControlName="description"></textarea>
+  <span *ngIf="!boardsForm.get('description').valid && boardsForm.get('description').touched">Please enter Book Description</span>
+
+  Author:
+  <br>
+  <input placeholder="Author" formControlName="author">
+  <span *ngIf="!boardsForm.get('author').valid && boardsForm.get('author').touched">Please enter Book Author</span>
+
+  <div class="button-row">
+    <button type="submit" [disabled]="!boardsForm.valid">Save</button>
+  </div>
+</form>

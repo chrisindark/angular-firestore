@@ -1,0 +1,53 @@
+<p class="boards">
+  boards works!
+</p>
+
+<div class="button-row">
+  <a [routerLink]="['/boards-create']">Add</a>
+</div>
+
+<div class="example-container">
+  <table>
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Title Column -->
+    <ng-container>
+      <th> Title </th>
+      <br>
+      <td *ngFor="let board of boards" class="title-col">
+        {{board.title}}
+        <br>
+      </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container>
+      <th> Description </th>
+      <br>
+      <td *ngFor="let board of boards">
+        {{board.description}}
+        <br>
+      </td>
+    </ng-container>
+
+    <!-- Author Column -->
+    <ng-container>
+      <th> Author </th>
+      <br>
+      <td *ngFor="let board of boards">
+        {{board.author}}
+        <br>
+      </td>
+    </ng-container>
+
+    <ng-container>
+      <th> Link </th>
+      <br>
+      <td *ngFor="let board of boards">
+        <!--<a [routerLink]="['/boards-details/', board.id]">{{board.id}}</a>-->
+        <button (click)="goToBoardsDetails(board)">{{board.id}}</button>
+      </td>
+    </ng-container>
+  </table>
+</div>
